@@ -1,7 +1,7 @@
 package application;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Program {
@@ -54,7 +54,7 @@ public class Program {
 				e.printStackTrace();
 			}*/
 		
-		String path = "C:\\Games\\in.txt";
+		/*String path = "C:\\Games\\in.txt";
 
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			String line = br.readLine();
@@ -65,6 +65,22 @@ public class Program {
 			}
 		} catch (IOException e) {
 			System.out.println("Error " + e.getMessage());
-		}		
+		}*/	
+		
+		// -------------------------------------------------------------------
+		
+		//FileWriter e BufferedWriter
+		String[] lines = new String[] { "Good morning", "Good afternoon", "Good night"};
+		
+		String path = "C:\\Games\\out.txt";
+		
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
+			for (String line : lines) {
+				bw.write(line);
+				bw.newLine();
+			}
+		} catch (IOException e) {
+			System.out.println("Error " + e.getMessage());
+		}
 	}
 }
