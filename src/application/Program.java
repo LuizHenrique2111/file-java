@@ -26,7 +26,8 @@ public class Program {
 		
 		// ------------------------------------------------------------------
 		
-		String path = "C:\\Games\\in.txt";
+		// FileReader e BufferedReader
+		/*String path = "C:\\Games\\in.txt";
 		FileReader fr = null;
 		BufferedReader br = null;
 		try {
@@ -51,8 +52,19 @@ public class Program {
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
-		}
-	}
+			}*/
+		
+		String path = "C:\\Games\\in.txt";
 
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+			String line = br.readLine();
+			
+			while (line != null) {
+				System.out.println(line);
+				line = br.readLine();
+			}
+		} catch (IOException e) {
+			System.out.println("Error " + e.getMessage());
+		}		
+	}
 }
